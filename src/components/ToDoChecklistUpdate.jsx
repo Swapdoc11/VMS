@@ -6,19 +6,19 @@ import useFetch from '../hooks/useFetch';
 import { UserInformation } from '../contexts/AuthContext';
 import axios from 'axios';
 import './common.css'
-// import { checklists } from '../fakejsondata'
-const ToDoChecklist = () => {
+
+const ToDoChecklistUpdate = () => {
     const { search } = useLocation();
     const {user} = useContext(UserInformation)
     const [checks, setChecks] = useState([]);
     const queryParams = new URLSearchParams(search);
     const param = queryParams.get('checklist');
-    const { data } = useFetch(`/checklist/getCheckListById/${param}`);
+    const { data } = useFetch(`/todolist/getToDoListById/${param}`);
+    console.log(data);
  
     useEffect(() => {
         // Initialize the checklist state with the provided data
         if(data?.checklist){
-
             setChecks(data?.checklist?.map(item => ({ ...item,check:item , status: '', comment: '' })));
         }
       }, [data]); // Empty dependency array to ensure this effect runs only once
@@ -148,4 +148,4 @@ const ToDoChecklist = () => {
     );
 };
 
-export default ToDoChecklist;
+export default ToDoChecklistUpdate

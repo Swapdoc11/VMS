@@ -1,0 +1,13 @@
+.tabrow{
+
+}
+.tabdata{
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding:5px;
+    color:#177bad
+}
+.lnk{
+    color:#177bad
+}

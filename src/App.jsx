@@ -12,6 +12,7 @@ import ToDoChecklist from './components/ToDoChecklist'
 import Login from './components/Login'
 import { AuthContextProvider } from './contexts/AuthContext'
 import Admin from './components/Admin'
+import ToDoChecklistUpdate from './components/ToDoChecklistUpdate'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path={'/checklists'} element={<AddChecklist />} />
           <Route path={'/tasks'} element={<AddTasks />} />
           <Route path={'/todochecklist'} element={<ToDoChecklist />} />
+          <Route path={'/todochecklistupdate'} element={<ToDoChecklistUpdate />} />
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>

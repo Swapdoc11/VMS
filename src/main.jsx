@@ -7,7 +7,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:8888/api'
+axios.defaults.baseURL = 'http://10.10.0.252:8888/api'
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
     <App />

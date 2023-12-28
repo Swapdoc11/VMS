@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,10 +10,12 @@ import { Avatar, Drawer, ListItem, ListItemButton, ListItemIcon, ListItemText } 
 import { AdminPanelSettings, Checklist, Home, Logout, ManageAccounts, Message, NotificationImportant, Rule, Settings, Task } from '@mui/icons-material';
 import './Dashboard.css'
 import { Link, Navigate } from 'react-router-dom';
+import { UserInformation } from './contexts/AuthContext';
 const linkColor = {color:'#5a809c'}
 const Dashboard = (props) => {
     const {page} = props
     const [state, setState] = useState({ right: false })
+    const {user} = useContext(UserInformation)
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -154,7 +156,7 @@ const Dashboard = (props) => {
                         <ListItemIcon>
                             <Logout sx={{color:'#177bad'}}/>
                         </ListItemIcon>
-                        <Link href={'/'} style={linkColor}>
+                        <Link to={'/'} style={linkColor}>
                             <ListItemText primary={
                                 // <Typography variant="body1"  color={currentPage === 'home' ? '#5C6AC4' : 'grey'}>
                                 <Typography variant="body1"  >
@@ -179,7 +181,7 @@ const Dashboard = (props) => {
                                 <Avatar sx={{ width: 56, height: 56 }} />
                                 <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '10px', paddingBottom: '10px' }}>
                                     <div className='head'>
-                                        Hi, Swapnil
+                                        Hi, {user.name}
                                     </div>
                                     <div className='tagline'>
                                         Welcome to VMS Dashboard
@@ -197,7 +199,7 @@ const Dashboard = (props) => {
                             <Link className='links' to={"/task-status?params=tasks-status"} ><Rule /> Task Status</Link>
                             <Link className='links' to={"/profile?params=profile"} ><ManageAccounts /> Manage-Profile</Link>
                             <Link className={page === 'admin'?'links active':'links'} to={"/admin?params=admin"} ><AdminPanelSettings /> Admin</Link>
-                            <Link className='links' to={"/logout?params=logout"} ><Logout /> Logout</Link>
+                            <Link className='links' to={"/"}  ><Logout /> Logout</Link>
                         </div>
                         <div className='mobile_menu'>
 

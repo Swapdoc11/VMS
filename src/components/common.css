@@ -33,7 +33,12 @@
         flex-direction: row;
     }
     .subContainer{
-        width:48%
+        width:48%;
+              
+    }
+    .fluid{
+        display: flex; 
+        flex-direction: row;
     }
   
 }
@@ -60,6 +65,10 @@
         width:100%
     }
     .container{
+        flex-direction: column;
+    }
+    .fluid{
+        display: flex; 
         flex-direction: column;
     }
     

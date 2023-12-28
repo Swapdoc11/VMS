@@ -7,44 +7,46 @@ import { UserInformation } from '../contexts/AuthContext'
 import './Checklists.css'
 import moment from 'moment'
 
-const Checklists = () => {
+const ChecklistsStatus = () => {
     const { user } = useContext(UserInformation)
     const { data } = useFetch(`/checklist/getCheckListByVendor/${user.vendor._id}`)
+    const todochecklist = useFetch('/todolist/getToDoListToday')
     console.log(data);
     return (
         <>
             <div className='panel'>
                 <h3 style={{ borderBottom: '1px dashed grey', paddingBottom: '10px' }}>
                     <div>
-                        Daily Task Checklist
-                    <div style={{float:'right'}}>
-                        {moment().format('DD/MMM/YYYY')}
-                    </div>
+                        Daily Task Checklist Status
+                        <div style={{ float: 'right' }}>
+                            {moment().format('DD/MMM/YYYY')}
+                        </div>
                     </div>
                 </h3>
+
                 <table width={'100%'}>
                     <thead>
                         <tr>
                             {/* <th>Sr.</th> */}
                             <th align='left'>Checklist</th>
-                            <th align='left'>Created Date</th>
+                            <th align='left'>Status</th>
+                            <th align='left'>Date</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        {data?.map((checklist, index) => (
+                        {todochecklist?.data?.map((checklist, index) => (
                             <tr key={checklist._id} >
                                 {/* <td className='tabdata'>{index + 1}</td> */}
-                                <td style={{ paddingLeft: '5px' }}><Link className='lnk' to={`/todochecklist?checklist=${checklist._id}`}>{checklist.checklist_name}</Link></td>
+                                <td style={{ paddingLeft: '5px' }}><Link className='lnk' to={`/todochecklistupdate?checklist=${checklist._id}`}>{checklist.checklistname}</Link></td>
+                                <td style={{ paddingLeft: '5px' }}>{checklist.status}</td>
                                 <td style={{ paddingLeft: '5px' }}>{moment(checklist.created_date).format('DD/MM/YYYY')}</td>
                             </tr>
-
                         ))}
                     </tbody>
                 </table>
-            </div>
+            </div >
         </>
     )
 }
 
-export default Checklists
+export default ChecklistsStatus

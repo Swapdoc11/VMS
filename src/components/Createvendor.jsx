@@ -16,7 +16,7 @@ const Createvendor = () => {
             if (validateForm()) {
                 const result = await axios.post(`/vendor/addVendor/`,user) 
                 if(result.data){
-                    alert(result.data.msg)
+
                     setUser({ vendor_name: '', email: '' })
                 }
 

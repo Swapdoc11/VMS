@@ -1,0 +1,30 @@
+@media (min-width:1000px) {
+    .reportContainer{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 50%;
+    }
+    .report{
+        height:500px;
+    }
+    .smr{
+        width: 25%;
+    }
+}
+@media (max-width:1000px) {
+    .reportContainer{
+        display:flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+    } 
+    .report{
+        height:300px;
+       
+    }
+    .smr{
+        width: 100%;
+    }
+}
