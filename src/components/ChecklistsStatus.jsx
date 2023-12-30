@@ -6,6 +6,7 @@ import useFetch from '../hooks/useFetch'
 import { UserInformation } from '../contexts/AuthContext'
 import './Checklists.css'
 import moment from 'moment'
+import { Cancel, CheckCircle, Pending } from '@mui/icons-material'
 
 const ChecklistsStatus = () => {
     const { user } = useContext(UserInformation)
@@ -38,7 +39,17 @@ const ChecklistsStatus = () => {
                             <tr key={checklist._id} >
                                 {/* <td className='tabdata'>{index + 1}</td> */}
                                 <td style={{ paddingLeft: '5px' }}><Link className='lnk' to={`/todochecklistupdate?checklist=${checklist._id}`}>{checklist.checklistname}</Link></td>
-                                <td style={{ paddingLeft: '5px' }}>{checklist.status}</td>
+                                <td style={{ paddingLeft: '5px' }}>
+                                    {
+                                    {
+                                            Completed:<CheckCircle color='success'/>,
+                                            InComplete:<Cancel color='error'/>,
+                                            Partialy_Completed:<Pending sx={{color:'orange'}}/>
+                                    }[checklist.status]
+                                     
+                                    
+                                    }
+                                </td>
                                 <td style={{ paddingLeft: '5px' }}>{moment(checklist.created_date).format('DD/MM/YYYY')}</td>
                             </tr>
                         ))}

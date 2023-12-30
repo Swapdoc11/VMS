@@ -56,11 +56,11 @@ const Createuser = () => {
     return (
         <>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <TextField label={'Name'} value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} className='sm' required error={Boolean(errors.name)} helperText={errors.name} />
-                <TextField label={'Email'} value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} className='sm' required error={Boolean(errors.email)} helperText={errors.email} />
-                <TextField label={'Mobile'} value={user.mobile} onChange={(e) => setUser({ ...user, mobile: e.target.value })} className='sm' required error={Boolean(errors.mobile)} helperText={errors.mobile} />
+                <TextField label={'Name'} value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })} className='sm' required error={Boolean(errors.name)} helperText={errors.name} size='small'/>
+                <TextField label={'Email'} value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })} className='sm' required error={Boolean(errors.email)} helperText={errors.email} size='small'/>
+                <TextField label={'Mobile'} value={user.mobile} onChange={(e) => setUser({ ...user, mobile: e.target.value })} className='sm' required error={Boolean(errors.mobile)} helperText={errors.mobile} size='small'/>
                 {/* <TextField label={'Vendor'} value={user.vendor} onChange={(e)=>setUser({...user,vendor:e.target.value})} className='sm' required error={Boolean(errors.vendor)} helperText={errors.vendor}/> */}
-                <FormControl className='sm' error={Boolean(errors.vendor)} >
+                <FormControl className='sm' error={Boolean(errors.vendor)}  size='small'>
                     <InputLabel>Vendors</InputLabel>
                     <Select
                         label="Vendors"
@@ -74,8 +74,8 @@ const Createuser = () => {
                     </Select>
                     <FormHelperText>{errors.vendor}</FormHelperText>
                 </FormControl>
-                <TextField label={'Employee Id'} value={user?.emp_id} onChange={(e) => setUser({ ...user, emp_id: e.target.value })} className='sm' />
-                <TextField label={'Designation'} value={user?.designation} onChange={(e) => setUser({ ...user, designation: e.target.value })} className='sm' />
+                <TextField label={'Employee Id'} value={user?.emp_id} onChange={(e) => setUser({ ...user, emp_id: e.target.value })} className='sm' size='small'/>
+                <TextField label={'Designation'} value={user?.designation} onChange={(e) => setUser({ ...user, designation: e.target.value })} className='sm' size='small'/>
                 <Button variant='contained' onClick={() => submitUser()} startIcon={<VerifiedUser />}>Create User</Button>
             </div>
         </>

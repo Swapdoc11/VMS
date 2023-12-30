@@ -46,11 +46,13 @@ const ToDoChecklist = () => {
             acc[value]++;
             return acc;
         }, { 0: 0, 1: 0 });
-        let status = 'Completed'
-        if(count[0]>=count[1]){
-            status = 'Not Completed'
-        }else{
-            status = 'Partialy Completed'
+        let status = ''
+        if(count[1] === statusarray.length){
+            status = 'Completed'
+        }else if(count[0]>=count[1]){
+            status = 'InComplete'
+        }else if(count[0]<=count[1]){
+            status = 'Partialy_Completed'
         }
         const formData = {
           vendor: user.vendor._id || '', // Replace with the actual vendor ID
@@ -113,7 +115,7 @@ const ToDoChecklist = () => {
                                     <TableCell align="left">{index + 1}</TableCell>
                                     <TableCell align="left">{chklist}</TableCell>
                                     <TableCell align="left">
-                                        <FormControl fullWidth>
+                                        <FormControl fullWidth size='small'>
                                             <InputLabel>Select Status</InputLabel>
                                             <Select
                                                 label="Select Status" 
@@ -129,10 +131,11 @@ const ToDoChecklist = () => {
                                             </Select>
                                         </FormControl>
                                     </TableCell>
-                                    <TableCell align="left">
+                                    <TableCell align="left" size='small'>
                                         <TextField
                                             label={'Comment'}
-                                            onChange={(e) => handleCommentChange(index, e.target.value)}
+                                            onChange={(e) => handleCommentChange(index, e.target.value)} 
+                                            size='small'
                                         />
                                     </TableCell>
                                 </TableRow>

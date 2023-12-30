@@ -59,6 +59,7 @@ const Createvendor = () => {
                     required
                     error={Boolean(errors.vendor_name)}
                     helperText={errors.vendor_name}
+                    size='small'
                 />
                 <TextField
                     label={'Email'}
@@ -68,6 +69,7 @@ const Createvendor = () => {
                     required
                     error={Boolean(errors.email)}
                     helperText={errors.email}
+                    size='small'
                 />
                 <Button variant='contained' onClick={() => submitUser()} startIcon={<VerifiedUser />}>Create Vendor</Button>
             </div>

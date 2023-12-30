@@ -26,10 +26,10 @@ const ChecklistReport = () => {
             <div className='reportContainer'>
                 <div className='smr'>
 
-                    <TextField type='date' onChange={(e) => setDate(e.target.value)} />
+                    <TextField type='date' onChange={(e) => setDate(e.target.value)} size='small'/>
                 </div>
                 <div className='smr'>
-                    <FormControl className='sm' fullWidth>
+                    <FormControl className='sm' fullWidth size='small'>
                         <InputLabel>Vendors</InputLabel>
                         <Select
                             label="Vendors"
@@ -47,7 +47,7 @@ const ChecklistReport = () => {
                 <div className='smr'>
                     {!checklists.data ? (<><h3>select Vendor</h3></>) : (<>
 
-                        <FormControl className='sm'  fullWidth>
+                        <FormControl className='sm'  fullWidth size='small'>
                             <InputLabel>Checklist</InputLabel>
                             <Select
 
