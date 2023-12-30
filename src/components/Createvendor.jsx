@@ -16,10 +16,8 @@ const Createvendor = () => {
             if (validateForm()) {
                 const result = await axios.post(`/vendor/addVendor/`,user) 
                 if(result.data){
-
                     setUser({ vendor_name: '', email: '' })
                 }
-
             } 
         } catch (error) {
             if (error?.response?.data?.msg === 'Unauthorize') {
